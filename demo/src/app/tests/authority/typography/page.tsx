@@ -4,7 +4,7 @@ import {
   BaseParagraph,
   BaseText,
   BaseLink,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 import { getMeta } from "@/data/sidebar";

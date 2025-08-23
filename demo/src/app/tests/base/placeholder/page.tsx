@@ -1,7 +1,7 @@
 import React from "react";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
-import { BasePlaceholderPage, BaseButton } from "@shuriken-ui/react";
+import { BasePlaceholderPage, BaseButton } from "@glint-ui/react";
 import { getMeta } from "@/data/sidebar";
 import { Metadata } from "next";
 import Image from "next/image";

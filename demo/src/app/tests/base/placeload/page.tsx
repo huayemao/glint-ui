@@ -4,7 +4,7 @@ import { getMeta } from "@/data/sidebar";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
 
-import { BasePlaceload, BaseCard } from "@shuriken-ui/react";
+import { BasePlaceload, BaseCard } from "@glint-ui/react";
 
 const meta = getMeta("base", "placeload");
 

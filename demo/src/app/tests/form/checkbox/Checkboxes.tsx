@@ -12,7 +12,7 @@ import {
   BaseCard,
   BaseAvatar,
   BaseText,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 
 import NuiPreview from "@/components/NuiPreview";
 

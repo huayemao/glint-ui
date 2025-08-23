@@ -267,7 +267,7 @@ export const useNuiDefaultProperty = <
   if (config?.[component]?.[property] === undefined) {
     // eslint-disable-next-line no-console
     console.warn(
-      `[@shuriken-ui/react] Default configuration for ${component}.${String(property)} not found, did you forget to use <ShurikenUIProvider>?`,
+      `[@glint-ui/react] Default configuration for ${component}.${String(property)} not found, did you forget to use <ShurikenUIProvider>?`,
     );
   }
 
@@ -293,7 +293,7 @@ export const useThemeContext = () => {
 
   if (!ctx) {
     throw new Error(
-      "[@shuriken-ui/react] useThemeContext() has no contex, did you forget to use <ShurikenUIProvider>?",
+      "[@glint-ui/react] useThemeContext() has no contex, did you forget to use <ShurikenUIProvider>?",
     );
   }
 

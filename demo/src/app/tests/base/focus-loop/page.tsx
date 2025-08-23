@@ -3,7 +3,7 @@ import React from "react";
 import { getMeta } from "@/data/sidebar";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
-import { BaseFocusLoop, BaseButton } from "@shuriken-ui/react";
+import { BaseFocusLoop, BaseButton } from "@glint-ui/react";
 
 const meta = getMeta("base", "focusLoop");
 

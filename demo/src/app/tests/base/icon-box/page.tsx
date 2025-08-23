@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
 import Iconify from "@/components/Iconify";
-import { BaseIconBox } from "@shuriken-ui/react";
+import { BaseIconBox } from "@glint-ui/react";
 import { getMeta } from "@/data/sidebar";
 
 const meta = getMeta("base", "iconBox");

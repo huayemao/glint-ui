@@ -9,7 +9,7 @@ import {
   IconMoon,
   IconPlus,
   IconSun,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 

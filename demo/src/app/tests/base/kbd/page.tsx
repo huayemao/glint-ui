@@ -3,7 +3,7 @@ import { getMeta } from "@/data/sidebar";
 import { Metadata } from "next";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
-import { BaseKbd } from "@shuriken-ui/react";
+import { BaseKbd } from "@glint-ui/react";
 
 const meta = getMeta("base", "kbd");
 

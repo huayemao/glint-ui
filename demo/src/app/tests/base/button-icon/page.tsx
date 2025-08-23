@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import React from "react";
 import NuiPreview from "@/components/NuiPreview";
-import { BaseButtonGroup, BaseButtonIcon } from "@shuriken-ui/react";
+import { BaseButtonGroup, BaseButtonIcon } from "@glint-ui/react";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import Iconify from "@/components/Iconify";
 import { getMeta } from "@/data/sidebar";

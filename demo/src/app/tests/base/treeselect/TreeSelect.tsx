@@ -11,7 +11,7 @@ import {
   type BaseTreeSelectRef,
   BaseButton,
   BaseDropdown,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 
 const TreeSelect = () => {
   const [selection1, setSelection1] = useState<unknown[]>([]);

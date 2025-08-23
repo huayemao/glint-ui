@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="flex items-center justify-center h-screen">
-      @shuriken-ui/react playground!
+      @glint-ui/react playground!
     </div>
   );
 }

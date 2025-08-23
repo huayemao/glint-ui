@@ -1,4 +1,4 @@
-import { BaseButtonClose } from "@shuriken-ui/react";
+import { BaseButtonClose } from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 import { getMeta } from "@/data/sidebar";

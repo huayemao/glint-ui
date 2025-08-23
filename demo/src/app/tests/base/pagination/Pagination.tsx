@@ -2,7 +2,7 @@
 
 import React, { Fragment } from "react";
 import NuiPreview from "@/components/NuiPreview";
-import { BasePagination } from "@shuriken-ui/react";
+import { BasePagination } from "@glint-ui/react";
 import { useSearchParams } from "next/navigation";
 
 const Pagination = () => {

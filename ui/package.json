@@ -1,7 +1,7 @@
 {
-  "name": "@shuriken-ui/react",
-  "version": "0.0.5",
-  "description": "",
+  "name": "@glint-ui/react",
+  "version": "0.0.1",
+  "description": "a React component library",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
@@ -23,17 +23,19 @@
     "dev": "tsup --watch",
     "lint": "eslint -c .eslintrc.cjs ./src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix -c .eslintrc.cjs ./src/**/*.{ts,tsx}",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "prepublishOnly": "npm run build",
+    "publish": "npm publish --access public"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["react", "components", "ui", "tailwindcss"],
+  "author": "huayemao4g@gmail.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuriken-ui/react.git",
+    "url": "git+https://github.com/huayemao/glint-ui.git",
     "directory": "ui"
   },
   "bugs": {
-    "url": "https://github.com/shuriken-ui/react/issues"
+    "url": "https://github.com/your-username/glint-ui/issues"
   },
   "license": "MIT",
   "files": [

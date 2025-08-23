@@ -1,4 +1,4 @@
-import { BaseAvatarGroup } from "@shuriken-ui/react";
+import { BaseAvatarGroup } from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";

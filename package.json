@@ -1,16 +1,16 @@
 {
-  "name": "shuriken-ui",
+  "name": "glint-ui",
   "private": true,
-  "version": "0.0.4",
-  "description": "",
+  "version": "0.0.1",
+  "description": "a React component library",
   "scripts": {
     "install:all": "pnpm -r install",
-    "watch": "pnpm --filter=@shuriken-ui/react dev",
+    "watch": "pnpm --filter=@glint-ui/react dev",
     "dev": "pnpm run watch --onSuccess \"pnpm  --filter=demo  dev\"",
-    "build": "pnpm --filter=@shuriken-ui/react build",
-    "lint": "pnpm --filter=@shuriken-ui/react lint",
-    "lint:fix": "pnpm --filter=@shuriken-ui/react lint:fix",
-    "pre-commit": "pnpm run --filter=@shuriken-ui/react pre-commit",
+    "build": "pnpm --filter=@glint-ui/react build",
+    "lint": "pnpm --filter=@glint-ui/react lint",
+    "lint:fix": "pnpm --filter=@glint-ui/react lint:fix",
+    "pre-commit": "pnpm run --filter=@glint-ui/react pre-commit",
     "prepare": "husky install",
     "postinstall": "pnpm prepare"
   },
@@ -24,6 +24,6 @@
     "lint-staged": "^15.2.2"
   },
   "dependencies": {
-    "@shuriken-ui/react": "workspace:^"
+    "@glint-ui/react": "workspace:^"
   }
 }

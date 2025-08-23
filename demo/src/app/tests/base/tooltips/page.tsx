@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import React from "react";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
-import { BaseTag } from "@shuriken-ui/react";
+import { BaseTag } from "@glint-ui/react";
 import { getMeta } from "@/data/sidebar";
 
 const meta = getMeta("base", "tag");

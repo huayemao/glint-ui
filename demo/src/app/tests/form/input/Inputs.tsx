@@ -5,7 +5,7 @@ import {
   BaseButtonGroup,
   BaseSelect,
   BaseButton,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 import React, { Fragment, useState } from "react";
 import NuiPreview from "@/components/NuiPreview";
 import Iconify from "@/components/Iconify";

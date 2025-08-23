@@ -2,7 +2,7 @@
 import React, { Fragment, useState } from "react";
 import NuiPreview from "@/components/NuiPreview";
 
-import { BaseListbox } from "@shuriken-ui/react";
+import { BaseListbox } from "@glint-ui/react";
 
 const frameworks = ["Javascript", "Vue.js", "React.js", "Angular", "Alpine.js"];
 

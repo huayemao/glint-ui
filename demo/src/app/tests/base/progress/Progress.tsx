@@ -5,7 +5,7 @@ import {
   BaseProgress,
   BaseButtonAction,
   BaseProgressCircle,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 
 const Progress = () => {
   const [progress, setProgress] = useState(25);

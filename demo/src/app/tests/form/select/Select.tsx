@@ -1,6 +1,6 @@
 "use client";
 import { Fragment, useState } from "react";
-import { BaseSelect, BaseFocusLoop } from "@shuriken-ui/react";
+import { BaseSelect, BaseFocusLoop } from "@glint-ui/react";
 import NuiPreview from "@/components/NuiPreview";
 const Select = () => {
   const [options, setOptions] = useState({

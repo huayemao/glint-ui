@@ -3,7 +3,7 @@ import {
   BaseSwitchBall,
   BaseSwitchThin,
   BaseFocusLoop,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 import { Fragment, useState } from "react";
 import NuiPreview from "@/components/NuiPreview";
 

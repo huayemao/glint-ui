@@ -3,7 +3,7 @@ import { Fragment } from "react";
 
 import NuiPreview from "@/components/NuiPreview";
 
-import { BaseTabSlider } from "@shuriken-ui/react";
+import { BaseTabSlider } from "@glint-ui/react";
 const TabSlider = () => {
   return (
     <Fragment>

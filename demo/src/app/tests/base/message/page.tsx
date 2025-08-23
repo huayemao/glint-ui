@@ -1,4 +1,4 @@
-import { BaseMessage } from '@shuriken-ui/react'
+import { BaseMessage } from '@glint-ui/react'
 import { Metadata } from 'next'
 import React from 'react'
 

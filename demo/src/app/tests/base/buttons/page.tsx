@@ -1,4 +1,4 @@
-import { BaseButton, BaseButtonGroup } from "@shuriken-ui/react";
+import { BaseButton, BaseButtonGroup } from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";

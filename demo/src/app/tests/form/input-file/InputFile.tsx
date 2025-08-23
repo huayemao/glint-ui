@@ -3,7 +3,7 @@
 import React, { Fragment, useState } from "react";
 import NuiPreview from "@/components/NuiPreview";
 
-import { BaseInputFile } from "@shuriken-ui/react";
+import { BaseInputFile } from "@glint-ui/react";
 
 const InputFile = () => {
   const [first, setFirst] = useState<FileList | null>(null);

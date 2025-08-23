@@ -1,5 +1,5 @@
 "use client";
-import { BaseRadioHeadless, BaseCard, BaseRadio } from "@shuriken-ui/react";
+import { BaseRadioHeadless, BaseCard, BaseRadio } from "@glint-ui/react";
 import { Fragment, useState } from "react";
 import NuiPreview from "@/components/NuiPreview";
 import Iconify from "@/components/Iconify";

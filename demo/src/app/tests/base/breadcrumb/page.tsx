@@ -5,7 +5,7 @@ import { getMeta } from "@/data/sidebar";
 import Iconify from "@/components/Iconify";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
-import { BaseBreadcrumb } from "@shuriken-ui/react";
+import { BaseBreadcrumb } from "@glint-ui/react";
 
 const meta = getMeta("base", "breadcrumb");
 

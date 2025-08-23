@@ -3,7 +3,7 @@ import React from "react";
 import { getMeta } from "@/data/sidebar";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";
 import NuiPreview from "@/components/NuiPreview";
-import { BaseList, BaseListItem, BaseAvatar } from "@shuriken-ui/react";
+import { BaseList, BaseListItem, BaseAvatar } from "@glint-ui/react";
 import Iconify from "@/components/Iconify";
 
 const meta = getMeta("base", "list");

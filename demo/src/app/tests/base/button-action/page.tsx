@@ -3,7 +3,7 @@ import {
   BaseButtonGroup,
   BaseDropdown,
   BaseDropdownItem,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 import NuiPreviewContainer from "@/components/NuiPreviewContainer";

@@ -1,4 +1,4 @@
-import { BaseTag } from "@shuriken-ui/react";
+import { BaseTag } from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 

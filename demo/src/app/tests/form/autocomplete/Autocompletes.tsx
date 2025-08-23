@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import {
   BaseAutocomplete,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 
 import NuiPreview from "@/components/NuiPreview";
 

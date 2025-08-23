@@ -6,7 +6,7 @@ import {
   BaseHeading,
   BaseButton,
   BaseAvatar,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 
 const Textarea = () => {
   const [fields, setFields] = useState({

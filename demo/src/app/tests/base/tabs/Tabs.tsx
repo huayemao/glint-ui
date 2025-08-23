@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from "react";
 import NuiPreview from "@/components/NuiPreview";
-import { BaseTabs } from "@shuriken-ui/react";
+import { BaseTabs } from "@glint-ui/react";
 const Tabs = () => {
   const [selectedTab, setSelectedTab] = useState("team");
   return (

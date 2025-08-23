@@ -24,5 +24,5 @@ This repository contains the React version of Shuriken UI with ready to use comp
 
 ```shell
 pnpm add -D @shuriken-ui/tailwind
-pnpm add @shuriken-ui/react
+pnpm add @glint-ui/react
 ```

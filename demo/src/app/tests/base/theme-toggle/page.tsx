@@ -4,7 +4,7 @@ import NuiPreview from "@/components/NuiPreview";
 import { Metadata } from "next";
 import { getMeta } from "@/data/sidebar";
 
-import { BaseThemeToggle, BaseThemeSwitch } from "@shuriken-ui/react";
+import { BaseThemeToggle, BaseThemeSwitch } from "@glint-ui/react";
 
 const meta = getMeta("base", "themeToggle");
 

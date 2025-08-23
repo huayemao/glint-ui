@@ -7,7 +7,7 @@ import {
   BaseInputFileHeadless,
   BaseProgress,
   useNinjaFilePreview,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 
 import NuiPreview from "@/components/NuiPreview";
 import Iconify from "@/components/Iconify";

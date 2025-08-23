@@ -1,4 +1,4 @@
-import { BasePagination } from "@shuriken-ui/react";
+import { BasePagination } from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 

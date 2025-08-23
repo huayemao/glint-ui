@@ -1,6 +1,6 @@
 "use client";
 
-import { BaseSelect, useColorMode, ColorMode } from "@shuriken-ui/react";
+import { BaseSelect, useColorMode, ColorMode } from "@glint-ui/react";
 import React from "react";
 
 const ThemeSwitcher = () => {

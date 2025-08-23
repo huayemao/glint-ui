@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ShurikenUIProvider } from "@shuriken-ui/react";
+import { ShurikenUIProvider } from "@glint-ui/react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Link from "next/link";
 import NuiLogoText from "./NuiLogoText";
@@ -9,8 +9,8 @@ import { getLinks } from "@/data/sidebar";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - @shuriken-ui/react",
-    default: "@shuriken-ui/react",
+    template: "%s - @glint-ui/react",
+    default: "@glint-ui/react",
   },
 
   description: "",

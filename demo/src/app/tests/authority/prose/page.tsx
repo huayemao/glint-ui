@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { BaseProse } from "@shuriken-ui/react";
+import { BaseProse } from "@glint-ui/react";
 import React from "react";
 
 import { getMeta } from "@/data/sidebar";

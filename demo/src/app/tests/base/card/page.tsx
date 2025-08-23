@@ -1,4 +1,4 @@
-import { BaseCard, BaseHeading, BaseParagraph } from "@shuriken-ui/react";
+import { BaseCard, BaseHeading, BaseParagraph } from "@glint-ui/react";
 import { Metadata } from "next";
 import React from "react";
 import NuiPreview from "@/components/NuiPreview";

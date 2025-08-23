@@ -6,7 +6,7 @@ import {
   BaseButtonIcon,
   BaseProgress,
   useNinjaFilePreview,
-} from "@shuriken-ui/react";
+} from "@glint-ui/react";
 
 import Iconify from "@/components/Iconify";
 import Image from "next/image";
