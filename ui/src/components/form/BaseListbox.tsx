@@ -1,7 +1,13 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type Ref, forwardRef, useCallback, useEffect, useState } from "react";
-import { Listbox } from "@headlessui/react";
+import {
+  Label,
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+} from "@headlessui/react";
 import { Float } from "@headlessui-float/react";
 import { Icon } from "@iconify/react";
 import { useNuiDefaultProperty } from "~/Provider";
@@ -328,11 +334,9 @@ export const BaseListbox = forwardRef(function BaseListbox<T = string>(
             zIndex="20"
           >
             {label && !props.labelFloat ? (
-              <Listbox.Label
-                className={cn("nui-listbox-label", props.classes?.label)}
-              >
+              <Label className={cn("nui-listbox-label", props.classes?.label)}>
                 {label}
-              </Listbox.Label>
+              </Label>
             ) : (
               // eslint-disable-next-line react/jsx-no-useless-fragment
               <></>
@@ -341,7 +345,7 @@ export const BaseListbox = forwardRef(function BaseListbox<T = string>(
             <div className={cn("nui-listbox-outer", props.classes?.outer)}>
               <Float.Reference>
                 <div>
-                  <Listbox.Button
+                  <ListboxButton
                     // disabled={disabled}
                     className={cn("nui-listbox-button", props.classes?.button)}
                   >
@@ -447,17 +451,17 @@ export const BaseListbox = forwardRef(function BaseListbox<T = string>(
                         />
                       </span>
                     </div>
-                  </Listbox.Button>
+                  </ListboxButton>
 
                   {label && props.labelFloat && (
-                    <Listbox.Label
+                    <Label
                       className={cn(
                         "nui-label-float",
                         open && "nui-label-float-active",
                       )}
                     >
                       {label}
-                    </Listbox.Label>
+                    </Label>
                   )}
 
                   {loading && (
@@ -489,9 +493,9 @@ export const BaseListbox = forwardRef(function BaseListbox<T = string>(
               </Float.Reference>
 
               <Float.Content className={cn(!fixed && "w-full")}>
-                <Listbox.Options className="nui-listbox-options">
+                <ListboxOptions className="nui-listbox-options">
                   {props.items.map((item) => (
-                    <Listbox.Option
+                    <ListboxOption
                       key={
                         props.properties?.value
                           ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -539,9 +543,9 @@ export const BaseListbox = forwardRef(function BaseListbox<T = string>(
                           />
                         </li>
                       )}
-                    </Listbox.Option>
+                    </ListboxOption>
                   ))}
-                </Listbox.Options>
+                </ListboxOptions>
               </Float.Content>
 
               {error && typeof error === "string" && (

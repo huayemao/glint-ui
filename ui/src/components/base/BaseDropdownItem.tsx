@@ -1,4 +1,4 @@
-import { Menu } from "@headlessui/react";
+import { Menu, MenuItem } from "@headlessui/react";
 import { type PropsWithChildren, type ReactNode, forwardRef } from "react";
 import { useNuiDefaultProperty } from "~/Provider";
 import { type NinjaButtonProps, useNinjaButton } from "~/hooks/useNinjaButton";
@@ -170,7 +170,7 @@ export const BaseDropdownItem = forwardRef<
   };
 
   return (
-    <Menu.Item as="div">
+    <MenuItem as="div">
       {({ active, close }) => (
         <Component
           className={cn(
@@ -203,6 +203,6 @@ export const BaseDropdownItem = forwardRef<
           {end}
         </Component>
       )}
-    </Menu.Item>
+    </MenuItem>
   );
 });

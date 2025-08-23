@@ -11,7 +11,13 @@ import {
   useState,
 } from "react";
 import { useDebounce } from "use-debounce";
-import { Combobox } from "@headlessui/react";
+import {
+  Combobox,
+  ComboboxButton,
+  ComboboxOption,
+  ComboboxOptions,
+  Label,
+} from "@headlessui/react";
 import { Float } from "@headlessui-float/react";
 import { Icon } from "@iconify/react";
 import { useNuiDefaultProperty } from "~/Provider";
@@ -618,12 +624,10 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
       >
         <>
           {label && !props.labelFloat && (
-            <Combobox.Label
-              className={cn("nui-autocomplete-label", classes?.label)}
-            >
+            <Label className={cn("nui-autocomplete-label", classes?.label)}>
               {props.renderLabel?.({ query, filteredItems, pending, items }) ||
                 label}
-            </Combobox.Label>
+            </Label>
           )}
 
           {multiple && (
@@ -678,14 +682,14 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
             />
 
             {label && props.labelFloat && (
-              <Combobox.Label className={cn("nui-label-float", classes?.label)}>
+              <Label className={cn("nui-label-float", classes?.label)}>
                 {props.renderLabel?.({
                   query,
                   filteredItems,
                   pending,
                   items,
                 }) || label}
-              </Combobox.Label>
+              </Label>
             )}
 
             {iconResolved && (
@@ -724,7 +728,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
               )}
 
             {dropdown && (
-              <Combobox.Button className="nui-autocomplete-clear nui-autocomplete-chevron">
+              <ComboboxButton className="nui-autocomplete-clear nui-autocomplete-chevron">
                 {({ open }) => (
                   <>
                     props.renderDropdownIcon?.({open}) || (
@@ -739,7 +743,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
                     )
                   </>
                 )}
-              </Combobox.Button>
+              </ComboboxButton>
             )}
 
             {loading && (
@@ -767,7 +771,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
         </>
 
         <Float.Content className={cn(!fixed && "w-full")}>
-          <Combobox.Options
+          <ComboboxOptions
             as="div"
             className={cn(
               (filteredItems.length > 0 || !allowCreate) &&
@@ -814,7 +818,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
                 )}
 
                 {allowCreate && queryCreate && (
-                  <Combobox.Option as="div" value={queryCreate}>
+                  <ComboboxOption as="div" value={queryCreate}>
                     {({ active, selected }) => (
                       <>
                         {props.renderCreateItem?.({
@@ -831,11 +835,11 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
                         )}
                       </>
                     )}
-                  </Combobox.Option>
+                  </ComboboxOption>
                 )}
 
                 {filteredItems.map((item) => (
-                  <Combobox.Option
+                  <ComboboxOption
                     key={key(item)}
                     as="div"
                     className="nui-autocomplete-results-item"
@@ -873,7 +877,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
                         )}
                       </>
                     )}
-                  </Combobox.Option>
+                  </ComboboxOption>
                 ))}
 
                 {props.renderEndItem && (
@@ -888,7 +892,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
                 )}
               </>
             )}
-          </Combobox.Options>
+          </ComboboxOptions>
         </Float.Content>
       </Float>
     </Combobox>

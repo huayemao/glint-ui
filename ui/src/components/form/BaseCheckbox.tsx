@@ -178,17 +178,13 @@ function BaseCheckboxInner<T>(
     }
   }, [props.indeterminate]);
 
-  useImperativeHandle(
-    ref,
-    () => {
-      return {
-        get el() {
-          return inputRef.current;
-        },
-      };
-    },
-    [],
-  );
+  useImperativeHandle(ref, () => {
+    return {
+      get el() {
+        return inputRef.current;
+      },
+    };
+  }, []);
 
   return (
     <div

@@ -3,7 +3,7 @@ import { tree, fileTree, topicTree, teamTree } from "./treselect";
 import { Fragment, ReactNode, useRef, useState } from "react";
 import NuiPreview from "@/components/NuiPreview";
 
-import { Menu } from "@headlessui/react";
+import { Menu, MenuItem } from "@headlessui/react";
 
 import {
   BaseTreeSelect,
@@ -176,7 +176,7 @@ const TreeSelect = () => {
               items={teamTree}
               value={selection4}
               renderItemLabel={({ level, child, toggle }) => (
-                <Menu.Item>
+                <MenuItem>
                   <BaseTreeSelectItem
                     level={level}
                     toggle={toggle}
@@ -186,7 +186,7 @@ const TreeSelect = () => {
                       media: child.item?.media,
                     }}
                   />
-                </Menu.Item>
+                </MenuItem>
               )}
             />
             <BaseButton

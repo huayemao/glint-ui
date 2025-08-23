@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.18",
+    "@headlessui/react": "^2.2.7",
     "@iconify/react": "^4.1.1",
     "@glint-ui/react": "workspace:^",
     "next": "14.1.3",

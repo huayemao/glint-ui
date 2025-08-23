@@ -1,5 +1,5 @@
 import { type PropsWithChildren, type ReactNode, forwardRef } from "react";
-import { Menu } from "@headlessui/react";
+import { Menu, MenuButton, MenuItems } from "@headlessui/react";
 import { Icon } from "@iconify/react";
 import { Float } from "@headlessui-float/react";
 import { cn } from "~/utils";
@@ -197,7 +197,7 @@ export const BaseDropdown = forwardRef<HTMLDivElement, BaseDropdownProps>(
               adaptiveWidth={fixed}
               zIndex={20}
             >
-              <Menu.Button as="div">
+              <MenuButton as="div">
                 {typeof renderButton === "function" ? (
                   renderButton?.(open, close)
                 ) : renderButton ? (
@@ -250,9 +250,9 @@ export const BaseDropdown = forwardRef<HTMLDivElement, BaseDropdownProps>(
                     )}
                   </>
                 )}
-              </Menu.Button>
+              </MenuButton>
 
-              <Menu.Items
+              <MenuItems
                 className={cn(
                   "nui-dropdown-menu",
                   size && sizes[size],
@@ -271,7 +271,7 @@ export const BaseDropdown = forwardRef<HTMLDivElement, BaseDropdownProps>(
                   </div>
                 )}
                 <div className="nui-menu-content">{children}</div>
-              </Menu.Items>
+              </MenuItems>
             </Float>
           )}
         </Menu>
