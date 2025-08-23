@@ -1,6 +1,6 @@
 {
   "name": "@glint-ui/react",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "a React component library",
   "types": "dist/index.d.ts",
   "exports": {

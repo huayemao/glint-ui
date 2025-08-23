@@ -14,7 +14,7 @@ import { useNuiDefaultProperty } from "~/Provider";
 import { BasePlaceload } from "~/components/base/BasePlaceload";
 import { BaseInputHelpText } from "~/components/form/BaseInputHelpText";
 
-type BaseInputProps = InputHTMLAttributes<HTMLInputElement> & {
+type BaseInputProps = {
   /**
    * Callback function called when the value of the input changes.
    *
@@ -181,152 +181,154 @@ export type BaseInputRef = {
   id: string;
 };
 
-export const BaseInput = forwardRef<BaseInputRef, BaseInputProps>(
-  function BaseInput(
-    {
-      placeholder: defaultPlaceholder,
-      loading = false,
-      labelFloat = false,
-      error = false,
-      stateModifiers,
-      type = "text",
-      label,
-      action,
-      id,
-      icon,
-      classes,
-      colorFocus,
-      value,
-      onChange,
-      ...props
-    }: BaseInputProps,
-    ref,
-  ) {
-    const inputRef = useRef<HTMLInputElement>(null);
-
-    const contrast = useNuiDefaultProperty(props, "BaseInput", "contrast");
-    const rounded = useNuiDefaultProperty(props, "BaseInput", "rounded");
-    const size = useNuiDefaultProperty(props, "BaseInput", "size");
-
-    const attrs = {
-      ...props,
-      contrast: undefined,
-      rounded: undefined,
-      size: undefined,
-    };
-
-    const placeholder = useMemo(() => {
-      if (loading) {
-        return undefined;
-      }
-
-      if (labelFloat) {
-        return label;
-      }
-
-      return defaultPlaceholder ?? "";
-    }, [label, labelFloat, loading, defaultPlaceholder]);
-
-    function looseToNumber(val: string) {
-      const n = Number.parseFloat(val);
-
-      return Number.isNaN(n) ? val : n;
-    }
-
-    function handleUpdate(val: string) {
-      if (stateModifiers?.trim) {
-        onChange?.(val.trim());
-      } else if (stateModifiers?.number) {
-        onChange?.(looseToNumber(val));
-      } else {
-        onChange?.(val);
-      }
-    }
-
-    useImperativeHandle(
-      ref,
-      () => ({
-        get el() {
-          return inputRef.current;
-        },
-        id: id || "",
-      }),
-      [id],
-    );
-
-    return (
-      <div
-        className={cn(
-          "nui-input-wrapper",
-          contrast && contrasts[contrast],
-          size && sizes[size],
-          rounded && radiuses[rounded],
-          error && !loading && "nui-input-error",
-          loading && "nui-input-loading",
-          labelFloat && "nui-input-label-float",
-          icon && "nui-has-icon",
-          colorFocus && "nui-input-focus",
-          classes?.wrapper,
-        )}
-      >
-        {label && !labelFloat && (
-          <label className={cn("nui-input-label", classes?.label)} htmlFor={id}>
-            {label}
-          </label>
-        )}
-        <div className={cn("nui-input-outer", classes?.outer)}>
-          <div>
-            {stateModifiers?.lazy ? (
-              <input
-                id={id}
-                ref={inputRef}
-                type={type}
-                className={cn("nui-input", classes?.input)}
-                placeholder={placeholder}
-                onChange={(e) => handleUpdate(e.target.value)}
-                value={value}
-                {...attrs}
-              />
-            ) : (
-              <input
-                id={id}
-                ref={inputRef}
-                type={type}
-                className={cn("nui-input", classes?.input)}
-                placeholder={placeholder}
-                onInput={(e) => handleUpdate(e.currentTarget.value)}
-                value={value}
-                {...attrs}
-              />
-            )}
-            {label && labelFloat && (
-              <label
-                htmlFor={id}
-                className={cn("nui-label-float", classes?.label)}
-              >
-                {label}
-              </label>
-            )}
-            {loading && (
-              <div className="nui-input-placeload">
-                <BasePlaceload className="nui-placeload" />
-              </div>
-            )}
-            {icon && (
-              <div className={cn("nui-input-icon", classes?.icon)}>
-                <Icon icon={icon} className="nui-input-icon-inner" />
-              </div>
-            )}
-
-            {action}
-          </div>
-          {error && typeof error === "string" && (
-            <BaseInputHelpText color="danger" className={cn(classes?.error)}>
-              {error}
-            </BaseInputHelpText>
-          )}
-        </div>
-      </div>
-    );
+export const BaseInput = forwardRef<
+  BaseInputRef,
+  BaseInputProps &
+    Omit<InputHTMLAttributes<HTMLInputElement>, keyof BaseInputProps>
+>(function BaseInput(
+  {
+    placeholder: defaultPlaceholder,
+    loading = false,
+    labelFloat = false,
+    error = false,
+    stateModifiers,
+    type = "text",
+    label,
+    action,
+    id,
+    icon,
+    classes,
+    colorFocus,
+    value,
+    onChange,
+    ...props
   },
-);
+  ref,
+) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const contrast = useNuiDefaultProperty(props, "BaseInput", "contrast");
+  const rounded = useNuiDefaultProperty(props, "BaseInput", "rounded");
+  const size = useNuiDefaultProperty(props, "BaseInput", "size");
+
+  const attrs = {
+    ...props,
+    contrast: undefined,
+    rounded: undefined,
+    size: undefined,
+  };
+
+  const placeholder = useMemo(() => {
+    if (loading) {
+      return undefined;
+    }
+
+    if (labelFloat) {
+      return label;
+    }
+
+    return defaultPlaceholder ?? "";
+  }, [label, labelFloat, loading, defaultPlaceholder]);
+
+  function looseToNumber(val: string) {
+    const n = Number.parseFloat(val);
+
+    return Number.isNaN(n) ? val : n;
+  }
+
+  function handleUpdate(val: string) {
+    if (stateModifiers?.trim) {
+      onChange?.(val.trim());
+    } else if (stateModifiers?.number) {
+      onChange?.(looseToNumber(val));
+    } else {
+      onChange?.(val);
+    }
+  }
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      get el() {
+        return inputRef.current;
+      },
+      id: id || "",
+    }),
+    [id],
+  );
+
+  return (
+    <div
+      className={cn(
+        "nui-input-wrapper",
+        contrast && contrasts[contrast],
+        size && sizes[size],
+        rounded && radiuses[rounded],
+        error && !loading && "nui-input-error",
+        loading && "nui-input-loading",
+        labelFloat && "nui-input-label-float",
+        icon && "nui-has-icon",
+        colorFocus && "nui-input-focus",
+        classes?.wrapper,
+      )}
+    >
+      {label && !labelFloat && (
+        <label className={cn("nui-input-label", classes?.label)} htmlFor={id}>
+          {label}
+        </label>
+      )}
+      <div className={cn("nui-input-outer", classes?.outer)}>
+        <div>
+          {stateModifiers?.lazy ? (
+            <input
+              id={id}
+              ref={inputRef}
+              type={type}
+              className={cn("nui-input", classes?.input)}
+              placeholder={placeholder}
+              onChange={(e) => handleUpdate(e.target.value)}
+              value={value}
+              {...attrs}
+            />
+          ) : (
+            <input
+              id={id}
+              ref={inputRef}
+              type={type}
+              className={cn("nui-input", classes?.input)}
+              placeholder={placeholder}
+              onInput={(e) => handleUpdate(e.currentTarget.value)}
+              value={value}
+              {...attrs}
+            />
+          )}
+          {label && labelFloat && (
+            <label
+              htmlFor={id}
+              className={cn("nui-label-float", classes?.label)}
+            >
+              {label}
+            </label>
+          )}
+          {loading && (
+            <div className="nui-input-placeload">
+              <BasePlaceload className="nui-placeload" />
+            </div>
+          )}
+          {icon && (
+            <div className={cn("nui-input-icon", classes?.icon)}>
+              <Icon icon={icon} className="nui-input-icon-inner" />
+            </div>
+          )}
+
+          {action}
+        </div>
+        {error && typeof error === "string" && (
+          <BaseInputHelpText color="danger" className={cn(classes?.error)}>
+            {error}
+          </BaseInputHelpText>
+        )}
+      </div>
+    </div>
+  );
+});
