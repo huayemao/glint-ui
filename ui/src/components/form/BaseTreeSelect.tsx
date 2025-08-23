@@ -104,7 +104,7 @@ type BaseTreeSelectProps = {
      *
      * @see [BaseCheckbox]
      */
-    checkbox?: unknown;
+    checkbox?: object;
   };
 
   /**
@@ -359,7 +359,7 @@ export const BaseTreeSelect = forwardRef<
 
     return {
       ...defaultCheckboxClasses,
-      ...classes.checkbox,
+      ...classes!.checkbox,
     };
   }, [classes.checkbox]);
 

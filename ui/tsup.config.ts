@@ -4,7 +4,7 @@ import { defineConfig } from "tsup";
 export default defineConfig((options) => ({
   entry: ["src/**/*.ts", "src/**/*.tsx"],
   format: ["cjs", "esm"],
-  dts: false,
+  dts: true,
 
   // dts: false,
   // async onSuccess() {

@@ -24,19 +24,19 @@ type BaseFocusLoopProps<E extends ElementType = "div"> = {
    * @default PageUp
    * @see https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values
    */
-  nextKeys: string | string[];
+  nextKeys?: string | string[];
 
   /**
    * Keys to trigger the previous focusable element
    *
    * @default PageDown
    */
-  prevKeys: string | string[];
+  prevKeys?: string | string[];
 
   /**
    * Prevent the default behavior of the keys
    */
-  prevent: boolean;
+  prevent?: boolean;
 };
 
 function compareKeys(key: string, keys: string | string[]) {

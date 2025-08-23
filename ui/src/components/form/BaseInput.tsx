@@ -1,5 +1,6 @@
 import {
   type HTMLAttributes,
+  type InputHTMLAttributes,
   type ReactNode,
   forwardRef,
   useImperativeHandle,
@@ -13,7 +14,7 @@ import { useNuiDefaultProperty } from "~/Provider";
 import { BasePlaceload } from "~/components/base/BasePlaceload";
 import { BaseInputHelpText } from "~/components/form/BaseInputHelpText";
 
-type BaseInputProps = HTMLAttributes<HTMLInputElement> & {
+type BaseInputProps = InputHTMLAttributes<HTMLInputElement> & {
   /**
    * Callback function called when the value of the input changes.
    *
@@ -198,7 +199,7 @@ export const BaseInput = forwardRef<BaseInputRef, BaseInputProps>(
       value,
       onChange,
       ...props
-    },
+    }: BaseInputProps,
     ref,
   ) {
     const inputRef = useRef<HTMLInputElement>(null);

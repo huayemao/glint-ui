@@ -28,6 +28,7 @@ const Inputs = () => {
       <NuiPreview title="Radius" description="Inputs radiuses">
         <div className="grid gap-6 md:max-w-4xl md:grid-cols-3">
           <BaseInput
+            name="Radius"
             value={fields.first}
             onChange={(value) =>
               setFields((oldFields) => ({ ...oldFields, first: value }))
