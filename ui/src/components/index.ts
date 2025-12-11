@@ -15,6 +15,8 @@ export * from "./base/BaseAccordion";
 
 export * from "./base/BaseAvatar";
 
+export * from "./base/BaseFloat";
+
 export * from "./base/BaseAvatarGroup";
 
 export * from "./base/BaseButtonAction";

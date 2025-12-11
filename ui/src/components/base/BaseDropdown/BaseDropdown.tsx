@@ -1,9 +1,9 @@
 import { type PropsWithChildren, type ReactNode, forwardRef } from "react";
 import { Menu, MenuButton, MenuItems } from "@headlessui/react";
 import { Icon } from "@iconify/react";
-import { Float } from "@headlessui-float/react";
 import { cn } from "~/utils";
 import { BaseButton } from "~/components/base/BaseButton";
+import { BaseFloat } from "~/components/base/BaseFloat";
 import { useNuiDefaultProperty } from "~/Provider";
 import "./BaseDropdown.css";
 
@@ -183,96 +183,101 @@ export const BaseDropdown = forwardRef<HTMLDivElement, BaseDropdownProps>(
       <div className={cn("nui-dropdown", props.classes?.wrapper)} ref={ref}>
         <Menu as="div" className="nui-menu">
           {({ open, close }) => (
-            <Float
+            <BaseFloat
+              composable
               enter="transition duration-100 ease-out"
               enterFrom="transform scale-95 opacity-0"
               enterTo="transform scale-100 opacity-100"
               leave="transition duration-75 ease-in"
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
-              flip
               offset={props.variant === "context" ? 6 : 4}
               strategy={fixed ? "fixed" : "absolute"}
               placement={placement}
               adaptiveWidth={fixed}
               zIndex={20}
             >
-              <MenuButton as="div">
-                {typeof renderButton === "function" ? (
-                  renderButton?.(open, close)
-                ) : renderButton ? (
-                  renderButton
-                ) : (
-                  <>
-                    {variant === "button" && (
-                      <BaseButton
-                        color={buttonColor}
-                        rounded={rounded}
-                        className="!pe-3 !ps-4"
-                      >
-                        <span>{label}</span>
-                        <Icon
-                          icon="lucide:chevron-down"
-                          className={cn("nui-chevron", open && "rotate-180")}
-                        />
-                      </BaseButton>
-                    )}
-                    {variant === "context" && (
-                      <button
-                        type="button"
-                        className="nui-context-button nui-focus"
-                      >
-                        <span className="nui-context-button-inner">
+              <BaseFloat.Reference>
+                <MenuButton as="div">
+                  {typeof renderButton === "function" ? (
+                    renderButton?.(open, close)
+                  ) : renderButton ? (
+                    renderButton
+                  ) : (
+                    <>
+                      {variant === "button" && (
+                        <BaseButton
+                          color={buttonColor}
+                          rounded={rounded}
+                          className="!pe-3 !ps-4"
+                        >
+                          <span>{label}</span>
                           <Icon
-                            icon="lucide:more-horizontal"
-                            className={cn(
-                              "nui-context-icon",
-                              open && "rotate-90",
-                            )}
+                            icon="lucide:chevron-down"
+                            className={cn("nui-chevron", open && "rotate-180")}
                           />
-                        </span>
-                      </button>
-                    )}
-                    {variant === "text" && (
-                      <button
-                        type="button"
-                        className={cn(
-                          "nui-text-button nui-focus",
-                          buttonColor && textColors[buttonColor],
-                        )}
-                      >
-                        <span className="nui-text-button-inner">{label}</span>
-                        <Icon
-                          icon="lucide:chevron-down"
-                          className={cn("nui-chevron", open && "rotate-180")}
-                        />
-                      </button>
-                    )}
-                  </>
-                )}
-              </MenuButton>
-
-              <MenuItems
-                className={cn(
-                  "nui-dropdown-menu",
-                  size && sizes[size],
-                  rounded && radiuses[rounded],
-                  color && colors[color],
-                  props.classes?.menu,
-                )}
-              >
-                {props.headerLabel && (
-                  <div className={cn("nui-menu-header", props.classes?.header)}>
-                    <div className="nui-menu-header-inner">
-                      <h4 className="nui-menu-header-title">
-                        {props.headerLabel}
-                      </h4>
+                        </BaseButton>
+                      )}
+                      {variant === "context" && (
+                        <button
+                          type="button"
+                          className="nui-context-button nui-focus"
+                        >
+                          <span className="nui-context-button-inner">
+                            <Icon
+                              icon="lucide:more-horizontal"
+                              className={cn(
+                                "nui-context-icon",
+                                open && "rotate-90",
+                              )}
+                            />
+                          </span>
+                        </button>
+                      )}
+                      {variant === "text" && (
+                        <button
+                          type="button"
+                          className={cn(
+                            "nui-text-button nui-focus",
+                            buttonColor && textColors[buttonColor],
+                          )}
+                        >
+                          <span className="nui-text-button-inner">{label}</span>
+                          <Icon
+                            icon="lucide:chevron-down"
+                            className={cn("nui-chevron", open && "rotate-180")}
+                          />
+                        </button>
+                      )}
+                    </>
+                  )}
+                </MenuButton>
+              </BaseFloat.Reference>
+              <BaseFloat.Content>
+                <MenuItems
+                  className={cn(
+                    "nui-dropdown-menu",
+                    size && sizes[size],
+                    rounded && radiuses[rounded],
+                    color && colors[color],
+                    props.classes?.menu,
+                  )}
+                >
+                  {props.headerLabel && (
+                    <div
+                      className={cn("nui-menu-header", props.classes?.header)}
+                    >
+                      <div className="nui-menu-header-inner">
+                        <h4 className="nui-menu-header-title">
+                          {props.headerLabel}
+                        </h4>
+                      </div>
                     </div>
-                  </div>
-                )}
-                <div className="nui-menu-content">{children}</div>
-              </MenuItems>
-            </Float>
+                  )}
+                  <div className="nui-menu-content">{children}</div>
+                </MenuItems>
+              </BaseFloat.Content>
+            </BaseFloat>
           )}
         </Menu>
       </div>

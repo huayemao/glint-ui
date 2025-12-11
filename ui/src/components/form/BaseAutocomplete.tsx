@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   type ReactNode,
@@ -25,6 +23,7 @@ import { cn } from "~/utils";
 import { BasePlaceload } from "../base/BasePlaceload";
 import { BaseAutocompleteItem } from "./BaseAutocompleteItem";
 import { BaseInputHelpText } from "~/components/form/BaseInputHelpText";
+import { BaseFloat } from "../base/BaseFloat";
 
 type BaseAutocompleteProps<T = string> = {
   /**
@@ -444,7 +443,6 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
   }
 
   const defaultFilter = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-shadow
     (query?: string, items?: T[]): T[] => {
       if (!query || !items) {
         return items ?? [];
@@ -452,7 +450,6 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
 
       const lower = query.toLowerCase();
 
-      // eslint-disable-next-line   array-callback-return, consistent-return
       return items.filter((item: any) => {
         if (typeof item === "string")
           return item?.toLowerCase().includes(lower);
@@ -523,15 +520,12 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
       return;
     }
 
-    // eslint-disable-next-line no-plusplus
     for (let i = autocompleteValue.length - 1; i >= 0; --i) {
       if (props.properties?.value) {
         if (autocompleteValue[i] === item) {
           autocompleteValue.splice(i, 1);
         }
-      }
-      // eslint-disable-next-line eqeqeq
-      else if (autocompleteValue[i] === item) {
+      } else if (autocompleteValue[i] === item) {
         autocompleteValue.splice(i, 1);
       }
     }
@@ -561,11 +555,9 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
     const cb = async () => {
       setPendingFilter(true);
       try {
-        // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle
         const _filteredItems = await filterResolved(debounced, items);
 
         setFilteredItems(_filteredItems);
-        // eslint-disable-next-line @typescript-eslint/no-shadow
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") {
           // Ignore abort errors
@@ -584,7 +576,6 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
   return (
     <Combobox
       value={autocompleteValue}
-      // eslint-disable-next-line react/jsx-no-bind
       onChange={handleChange}
       // by={
       //   props.stateModifiers?.prop && props.properties?.value
@@ -609,13 +600,10 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
       as="div"
       ref={ref}
     >
-      <Float
-        composable
-        leave="transition ease-in duration-100"
+      <BaseFloat
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
-        onHide={() => setQuery("")}
-        flip={!multiple}
+        // onHide={() => setQuery("")}
         offset={5}
         strategy={fixed ? "fixed" : "absolute"}
         placement={placement}
@@ -664,7 +652,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
           )}
         </>
 
-        <Float.Reference>
+        <BaseFloat.Reference>
           <div className="nui-autocomplete-outer">
             <Combobox.Input
               className={cn(
@@ -760,7 +748,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
               </div>
             )}
           </div>
-        </Float.Reference>
+        </BaseFloat.Reference>
 
         <>
           {error && typeof error === "string" && (
@@ -770,7 +758,7 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
           )}
         </>
 
-        <Float.Content className={cn(!fixed && "w-full")}>
+        <BaseFloat.Content className={cn(!fixed && "w-full")}>
           <ComboboxOptions
             as="div"
             className={cn(
@@ -893,8 +881,8 @@ export const BaseAutocomplete = forwardRef(function BaseAutocomplete<
               </>
             )}
           </ComboboxOptions>
-        </Float.Content>
-      </Float>
+        </BaseFloat.Content>
+      </BaseFloat>
     </Combobox>
   );
 });

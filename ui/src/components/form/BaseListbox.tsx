@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type Ref, forwardRef, useCallback, useEffect, useState } from "react";
 import {
@@ -8,7 +7,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
-import { Float } from "@headlessui-float/react";
+import { BaseFloat } from "~/components/base/BaseFloat";
 import { Icon } from "@iconify/react";
 import { useNuiDefaultProperty } from "~/Provider";
 import { cn } from "~/utils";
@@ -321,233 +320,233 @@ export const BaseListbox = forwardRef(function BaseListbox<T = string>(
         disabled={disabled}
       >
         {({ open }) => (
-          <Float
-            composable
-            leave="transition duration-100 ease-in"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            flip
-            offset={5}
-            strategy={fixed ? "fixed" : "absolute"}
-            placement={placement}
-            adaptiveWidth={fixed}
-            zIndex="20"
-          >
+          <>
             {label && !props.labelFloat ? (
               <Label className={cn("nui-listbox-label", props.classes?.label)}>
                 {label}
               </Label>
             ) : (
-              // eslint-disable-next-line react/jsx-no-useless-fragment
               <></>
             )}
 
             <div className={cn("nui-listbox-outer", props.classes?.outer)}>
-              <Float.Reference>
-                <div>
-                  <ListboxButton
-                    // disabled={disabled}
-                    className={cn("nui-listbox-button", props.classes?.button)}
-                  >
-                    <div className="nui-listbox-button-inner">
-                      {icon && (
-                        <BaseIconBox
-                          size="xs"
-                          rounded="sm"
-                          color="none"
-                          className={cn("nui-icon-box", props.classes?.icon)}
-                        >
-                          <Icon icon={icon} className="nui-icon-box-inner" />
-                        </BaseIconBox>
+              <BaseFloat
+                leave="transition duration-100 ease-in"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+                offset={5}
+                strategy={fixed ? "fixed" : "absolute"}
+                placement={placement}
+                adaptiveWidth={fixed}
+                zIndex={20}
+              >
+                <BaseFloat.Reference>
+                  <div>
+                    <ListboxButton
+                      // disabled={disabled}
+                      className={cn(
+                        "nui-listbox-button",
+                        props.classes?.button,
                       )}
+                    >
+                      <div className="nui-listbox-button-inner">
+                        {icon && (
+                          <BaseIconBox
+                            size="xs"
+                            rounded="sm"
+                            color="none"
+                            className={cn("nui-icon-box", props.classes?.icon)}
+                          >
+                            <Icon icon={icon} className="nui-icon-box-inner" />
+                          </BaseIconBox>
+                        )}
 
-                      {Array.isArray(value) ? (
-                        <>
-                          {value.length === 0 && placeholder && (
+                        {Array.isArray(value) ? (
+                          <>
+                            {value.length === 0 && placeholder && (
+                              <div
+                                className={cn(
+                                  "nui-listbox-placeholder",
+                                  loading && "select-none text-transparent",
+                                )}
+                              >
+                                {placeholder}
+                              </div>
+                            )}
+
                             <div
                               className={cn(
-                                "nui-listbox-placeholder",
+                                "block truncate text-left",
+                                loading && "select-none text-transparent",
+                                value.length === 0 &&
+                                  "text-muted-300 dark:text-muted-500",
+                              )}
+                            >
+                              {typeof multipleLabel === "function"
+                                ? multipleLabel(
+                                    value,
+                                    props.properties?.label as
+                                      | string
+                                      | undefined,
+                                  )
+                                : multipleLabel}
+                            </div>
+                          </>
+                        ) : value ? (
+                          <>
+                            {props.properties?.media &&
+                              (value as any)[props.properties.media] && (
+                                <BaseAvatar
+                                  src={(value as any)[props.properties.media]}
+                                  size={size === "sm" ? "xxs" : "xs"}
+                                  className={cn(
+                                    "me-2",
+                                    size === "sm" ? "-ms-1" : "-ms-2",
+                                  )}
+                                />
+                              )}
+                            {props.properties?.icon &&
+                              (value as any)[props.properties.icon] && (
+                                <BaseIconBox
+                                  size="xs"
+                                  rounded="sm"
+                                  color="none"
+                                  className="-ms-2 me-2"
+                                >
+                                  <Icon
+                                    icon={(value as any)[props.properties.icon]}
+                                    className="h-4 w-4"
+                                  />
+                                </BaseIconBox>
+                              )}
+                            <div
+                              className={cn(
+                                "truncate text-left",
                                 loading && "select-none text-transparent",
                               )}
                             >
-                              {placeholder}
-                            </div>
-                          )}
-
-                          <div
-                            className={cn(
-                              "block truncate text-left",
-                              loading && "select-none text-transparent",
-                              value.length === 0 &&
-                                "text-muted-300 dark:text-muted-500",
-                            )}
-                          >
-                            {typeof multipleLabel === "function"
-                              ? multipleLabel(
-                                  value,
-                                  props.properties?.label as string | undefined,
-                                )
-                              : multipleLabel}
-                          </div>
-                        </>
-                      ) : value ? (
-                        <>
-                          {props.properties?.media &&
-                            (value as any)[props.properties.media] && (
-                              <BaseAvatar
-                                src={(value as any)[props.properties.media]}
-                                size={size === "sm" ? "xxs" : "xs"}
-                                className={cn(
-                                  "me-2",
-                                  size === "sm" ? "-ms-1" : "-ms-2",
-                                )}
-                              />
-                            )}
-                          {props.properties?.icon &&
-                            (value as any)[props.properties.icon] && (
-                              <BaseIconBox
-                                size="xs"
-                                rounded="sm"
-                                color="none"
-                                className="-ms-2 me-2"
-                              >
-                                <Icon
-                                  icon={(value as any)[props.properties.icon]}
-                                  className="h-4 w-4"
-                                />
-                              </BaseIconBox>
-                            )}
-                          <div
-                            className={cn(
-                              "truncate text-left",
-                              loading && "select-none text-transparent",
-                            )}
-                          >
-                            {props.properties?.label
-                              ? (value as any)[props.properties.label]
-                              : props.properties?.value
-                                ? (value as any)[props.properties.value]
-                                : value}
-                          </div>
-                        </>
-                      ) : (
-                        <div
-                          className={cn(
-                            "nui-listbox-placeholder",
-                            loading && "select-none !text-transparent",
-                          )}
-                        >
-                          {placeholder}
-                        </div>
-                      )}
-
-                      <span className="nui-listbox-chevron nui-chevron">
-                        <Icon
-                          icon="lucide:chevron-down"
-                          className={cn(
-                            "nui-listbox-chevron-inner",
-                            open && "rotate-180",
-                          )}
-                        />
-                      </span>
-                    </div>
-                  </ListboxButton>
-
-                  {label && props.labelFloat && (
-                    <Label
-                      className={cn(
-                        "nui-label-float",
-                        open && "nui-label-float-active",
-                      )}
-                    >
-                      {label}
-                    </Label>
-                  )}
-
-                  {loading && (
-                    <div
-                      className={cn(
-                        "nui-listbox-placeload nui-loading-placeload",
-                        (props.properties?.media && size === "sm") ||
-                          (props.properties?.icon && size === "sm")
-                          ? "ms-6"
-                          : "",
-                        (props.properties?.media && size === "md") ||
-                          (props.properties?.icon && size === "md")
-                          ? "ms-8"
-                          : "",
-                        (props.properties?.media && size === "lg") ||
-                          (props.properties?.icon && size === "lg")
-                          ? "ms-9"
-                          : "",
-                        (props.properties?.media && size === "xl") ||
-                          (props.properties?.icon && size === "xl")
-                          ? "ms-9"
-                          : "",
-                      )}
-                    >
-                      <BasePlaceload className="nui-placeload !w-[70%]" />
-                    </div>
-                  )}
-                </div>
-              </Float.Reference>
-
-              <Float.Content className={cn(!fixed && "w-full")}>
-                <ListboxOptions className="nui-listbox-options">
-                  {props.items.map((item) => (
-                    <ListboxOption
-                      key={
-                        props.properties?.value
-                          ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (item as any)[props.properties.value]
-                          : item
-                      }
-                      value={
-                        props.stateModifiers?.prop && props.properties?.value
-                          ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (item as any)[props.properties.value]
-                          : item
-                      }
-                    >
-                      {({ active, selected }) => (
-                        <li
-                          className={cn(
-                            "nui-listbox-option group/nui-listbox-option",
-                            active && "nui-active",
-                          )}
-                        >
-                          <BaseListboxItem
-                            value={{
-                              // eslint-disable-next-line no-nested-ternary
-                              value: props.properties?.label
-                                ? (item as any)[props.properties?.label]
+                              {props.properties?.label
+                                ? (value as any)[props.properties.label]
                                 : props.properties?.value
-                                  ? (item as any)[props.properties?.value]
-                                  : (item as any),
-                              label:
-                                props.properties?.label &&
-                                (item as any)[props.properties?.label],
-                              sublabel:
-                                props.properties?.sublabel &&
-                                (item as any)[props.properties?.sublabel],
-                              media:
-                                props.properties?.media &&
-                                (item as any)[props.properties?.media],
-                              icon:
-                                props.properties?.icon &&
-                                (item as any)[props.properties?.icon],
-                            }}
-                            selectedIcon={selectedIcon}
-                            active={active}
-                            selected={selected}
-                          />
-                        </li>
-                      )}
-                    </ListboxOption>
-                  ))}
-                </ListboxOptions>
-              </Float.Content>
+                                  ? (value as any)[props.properties.value]
+                                  : value}
+                            </div>
+                          </>
+                        ) : (
+                          <div
+                            className={cn(
+                              "nui-listbox-placeholder",
+                              loading && "select-none !text-transparent",
+                            )}
+                          >
+                            {placeholder}
+                          </div>
+                        )}
 
+                        <span className="nui-listbox-chevron nui-chevron">
+                          <Icon
+                            icon="lucide:chevron-down"
+                            className={cn(
+                              "nui-listbox-chevron-inner",
+                              open && "rotate-180",
+                            )}
+                          />
+                        </span>
+                      </div>
+                    </ListboxButton>
+
+                    {label && props.labelFloat && (
+                      <Label
+                        className={cn(
+                          "nui-label-float",
+                          open && "nui-label-float-active",
+                        )}
+                      >
+                        {label}
+                      </Label>
+                    )}
+
+                    {loading && (
+                      <div
+                        className={cn(
+                          "nui-listbox-placeload nui-loading-placeload",
+                          (props.properties?.media && size === "sm") ||
+                            (props.properties?.icon && size === "sm")
+                            ? "ms-6"
+                            : "",
+                          (props.properties?.media && size === "md") ||
+                            (props.properties?.icon && size === "md")
+                            ? "ms-8"
+                            : "",
+                          (props.properties?.media && size === "lg") ||
+                            (props.properties?.icon && size === "lg")
+                            ? "ms-9"
+                            : "",
+                          (props.properties?.media && size === "xl") ||
+                            (props.properties?.icon && size === "xl")
+                            ? "ms-9"
+                            : "",
+                        )}
+                      >
+                        <BasePlaceload className="nui-placeload !w-[70%]" />
+                      </div>
+                    )}
+                  </div>
+                </BaseFloat.Reference>
+
+                <BaseFloat.Content className={cn(!fixed && "w-full")}>
+                  <ListboxOptions className="nui-listbox-options">
+                    {props.items.map((item) => (
+                      <ListboxOption
+                        key={
+                          props.properties?.value
+                            ? (item as any)[props.properties.value]
+                            : item
+                        }
+                        value={
+                          props.stateModifiers?.prop && props.properties?.value
+                            ? (item as any)[props.properties.value]
+                            : item
+                        }
+                      >
+                        {({ active, selected }) => (
+                          <li
+                            className={cn(
+                              "nui-listbox-option group/nui-listbox-option",
+                              active && "nui-active",
+                            )}
+                          >
+                            <BaseListboxItem
+                              value={{
+                                value: props.properties?.label
+                                  ? (item as any)[props.properties?.label]
+                                  : props.properties?.value
+                                    ? (item as any)[props.properties?.value]
+                                    : (item as any),
+                                label:
+                                  props.properties?.label &&
+                                  (item as any)[props.properties?.label],
+                                sublabel:
+                                  props.properties?.sublabel &&
+                                  (item as any)[props.properties?.sublabel],
+                                media:
+                                  props.properties?.media &&
+                                  (item as any)[props.properties?.media],
+                                icon:
+                                  props.properties?.icon &&
+                                  (item as any)[props.properties?.icon],
+                              }}
+                              selectedIcon={selectedIcon}
+                              active={active}
+                              selected={selected}
+                            />
+                          </li>
+                        )}
+                      </ListboxOption>
+                    ))}
+                  </ListboxOptions>
+                </BaseFloat.Content>
+              </BaseFloat>
               {error && typeof error === "string" && (
                 <BaseInputHelpText
                   color="danger"
@@ -557,7 +556,7 @@ export const BaseListbox = forwardRef(function BaseListbox<T = string>(
                 </BaseInputHelpText>
               )}
             </div>
-          </Float>
+          </>
         )}
       </Listbox>
     </div>
