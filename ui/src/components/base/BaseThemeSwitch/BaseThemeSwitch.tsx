@@ -16,7 +16,7 @@ export const BaseThemeSwitch = forwardRef<
   HTMLLabelElement,
   BaseThemeSwitchProps
 >(function BaseThemeSwitch({ ...props }, ref) {
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   const { colorMode, setColorMode } = useColorMode();
 

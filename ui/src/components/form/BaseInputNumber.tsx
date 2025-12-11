@@ -233,9 +233,9 @@ export const BaseInputNumber = forwardRef<
 
   const [value, setValue] = useState<number | string>();
 
-  const incrementInterval = useRef<ReturnType<typeof setInterval>>();
+  const incrementInterval = useRef<ReturnType<typeof setInterval>>(null);
 
-  const decrementInterval = useRef<ReturnType<typeof setInterval>>();
+  const decrementInterval = useRef<ReturnType<typeof setInterval>>(null);
 
   const contrast = useNuiDefaultProperty(props, "BaseInputNumber", "contrast");
   const rounded = useNuiDefaultProperty(props, "BaseInputNumber", "rounded");
@@ -269,7 +269,7 @@ export const BaseInputNumber = forwardRef<
 
     while (Math.round(step * exp) / exp !== step) {
       exp *= 10;
-      // eslint-disable-next-line no-plusplus
+
       precision++;
     }
 
@@ -326,7 +326,6 @@ export const BaseInputNumber = forwardRef<
     let i = 0;
 
     incrementInterval.current = setInterval(() => {
-      // eslint-disable-next-line no-plusplus
       i++;
       increment();
       if (i > 10) {
@@ -352,7 +351,6 @@ export const BaseInputNumber = forwardRef<
     let i = 0;
 
     decrementInterval.current = setInterval(() => {
-      // eslint-disable-next-line no-plusplus
       i++;
       decrement();
       if (i > 10) {

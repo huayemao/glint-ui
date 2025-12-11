@@ -13,6 +13,7 @@ import { useNinjaId } from "~/hooks/useNinjaId";
 import { IconCheck } from "../icons/IconCheck";
 import { IconIndeterminate } from "../icons/IconIndeterminate";
 import { BaseInputHelpText } from "~/components/form/BaseInputHelpText";
+import { type JSX } from "react";
 
 interface BaseCheckboxAttributes<T> {
   /**

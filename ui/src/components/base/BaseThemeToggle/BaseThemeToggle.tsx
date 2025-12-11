@@ -22,7 +22,7 @@ export const BaseThemeToggle = forwardRef<
   HTMLLabelElement,
   BaseThemeToggleProps
 >(function BaseThemeToggle({ inverted = false, ...props }, ref) {
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   const { colorMode, setColorMode } = useColorMode();
 

@@ -69,7 +69,7 @@ export const BaseInputFileHeadless = forwardRef<
 
   const id = useNinjaId(() => props.id);
 
-  const previewMap = useRef<WeakMap<File, string | undefined>>();
+  const previewMap = useRef<WeakMap<File, string | undefined>>(new WeakMap());
 
   function open() {
     inputRef.current?.click();
